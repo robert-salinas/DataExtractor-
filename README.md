@@ -1,5 +1,10 @@
 # 🕷️ DataExtractor (DX) v0.1.0
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python Version](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Tests](https://github.com/robert-salinas/DataExtractor-/actions/workflows/tests.yml/badge.svg)](https://github.com/robert-salinas/DataExtractor-/actions)
+[![Build Status](https://github.com/robert-salinas/DataExtractor-/actions/workflows/lint.yml/badge.svg)](https://github.com/robert-salinas/DataExtractor-/actions)
+
 **"Herramienta flexible y potente para extraer datos de cualquier fuente web. Desde sitios simples HTML hasta aplicaciones JavaScript complejas, todo desde una única plataforma inteligente."**
 
 > **Slogan:** Extract. Transform. Analyze. Repeat.
@@ -62,180 +67,52 @@ data = extractor.extract_batch(
     fields=["title", "price", "rating"],
     pattern_learning=True
 )
-
-# El sistema automáticamente:
-# 1. Identifica dónde están título, precio y rating
-# 2. Aplica ese conocimiento a otras páginas
-# 3. Se adapta a cambios menores en el DOM
 ```
 
 ### 5. 📤 Multi-Format Output
 Extrae **una sola vez**, exporta a **múltiples formatos**:
 - CSV / JSON / Excel / Parquet / XML
 - SQL INSERT statements (listo para insertar en BD)
-- Webhooks (notificaciones HTTP)
-- Email (envío automático de reportes)
-- Cloud Storage (S3, Google Cloud, Azure)
+- Webhooks / Email / Cloud Storage
 
 ---
 
 ## 🛠️ Stack Tecnológico
 
-**Backend:**
-- Python 3.11+ (lenguaje principal)
-- FastAPI (servidor API de alto rendimiento)
-- Celery + Redis (procesamiento async y scheduling)
-- SQLAlchemy + Pydantic (ORM y validación de datos)
-- PostgreSQL (persistencia principal)
-
-**Scraping & Extracción:**
-- BeautifulSoup 4 (parsing semántico de HTML)
-- Playwright / Selenium (renderización de JavaScript)
-- httpx (cliente HTTP moderno)
-- PyPDF2 (extracción de PDFs)
-
-**Análisis de Datos:**
-- Pandas (transformación y limpieza)
-- Regex patterns (extracción inteligente)
-
-**Frontend:**
-- Vue 3 (interfaz reactiva)
-- Tailwind CSS (diseño accesible)
-- Shadcn/ui (componentes polished)
-
-**DevOps & Testing:**
-- Docker + Docker Compose (contenerización)
-- GitHub Actions (CI/CD automático)
-- Pytest (tests unitarios e integración)
+- **Backend:** Python 3.11+, FastAPI, Celery, Redis, SQLAlchemy.
+- **Scraping:** BeautifulSoup 4, Playwright, Selenium, httpx.
+- **Frontend:** Vue 3, Tailwind CSS, Shadcn/ui.
+- **Infra:** Docker, GitHub Actions.
 
 ---
 
-## 📁 Estructura del Proyecto
+## � Instalación Rápida (< 5 minutos)
 
-```text
-data-extractor/
-├── src/
-│   ├── core/
-│   │   ├── extractor.py        # Clase principal de orquestación
-│   │   ├── pipelines.py        # Flujos de extracción
-│   │   └── cache.py            # Sistema de caché inteligente
-│   │
-│   ├── scrapers/
-│   │   ├── html_scraper.py     # Extracción de HTML estándar
-│   │   ├── api_scraper.py      # Consumo de APIs REST
-│   │   ├── javascript_scraper.py # Renderización JavaScript
-│   │   ├── pdf_scraper.py      # Extracción de PDFs
-│   │   ├── database_scraper.py # Conexión a bases de datos
-│   │   └── scraper_factory.py  # Factory pattern
-│   │
-│   ├── extractors/
-│   │   ├── field_detector.py   # Detección automática de campos
-│   │   ├── pattern_learner.py  # Aprendizaje de patrones
-│   │   ├── data_classifier.py  # Clasificación de datos
-│   │   └── transformer.py      # Limpieza y normalización
-│   │
-│   ├── api/
-│   │   ├── main.py             # Aplicación FastAPI
-│   │   ├── routes/
-│   │   │   ├── extract.py      # Endpoints de extracción
-│   │   │   ├── jobs.py         # Gestión de tareas
-│   │   │   ├── history.py      # Historial de extracciones
-│   │   │   ├── export.py       # Exportación de datos
-│   │   │   └── templates.py    # Gestión de plantillas
-│   │   └── schemas.py          # Modelos Pydantic
-│   │
-│   ├── cli/
-│   │   ├── cli.py              # Interfaz de línea de comandos
-│   │   ├── commands/
-│   │   │   ├── extract.py      # Comando de extracción
-│   │   │   ├── schedule.py     # Scheduling de tareas
-│   │   │   ├── export.py       # Exportación
-│   │   │   └── config.py       # Configuración
-│   │   └── formatters.py       # Formateo de output
-│   │
-│   ├── web/
-│   │   ├── app.vue             # Aplicación principal
-│   │   ├── pages/
-│   │   │   ├── Dashboard.vue   # Panel principal
-│   │   │   ├── Extractor.vue   # Interfaz de extracción
-│   │   │   ├── History.vue     # Historial
-│   │   │   ├── Templates.vue   # Plantillas guardadas
-│   │   │   └── Settings.vue
-│   │   ├── components/
-│   │   │   ├── UrlInput.vue
-│   │   │   ├── DataPreview.vue
-│   │   │   ├── FieldMapper.vue
-│   │   │   └── ExportModal.vue
-│   │   └── utils/
-│   │
-│   ├── models/
-│   │   ├── extraction_job.py
-│   │   ├── extraction_template.py
-│   │   ├── extraction_history.py
-│   │   └── export_config.py
-│   │
-│   ├── jobs/
-│   │   ├── scheduler.py        # Celery scheduler
-│   │   ├── tasks.py            # Tareas asíncronas
-│   │   └── monitor.py          # Monitoreo de tareas
-│   │
-│   └── utils/
-│       ├── validators.py
-│       ├── rate_limiter.py
-│       ├── proxy_handler.py
-│       ├── error_handler.py
-│       └── logging.py
-│
-├── tests/
-│   ├── test_extractors.py
-│   ├── test_scrapers.py
-│   ├── test_api.py
-│   ├── test_cli.py
-│   ├── test_integration.py
-│   └── fixtures/
-│
-├── docs/
-│   ├── ARCHITECTURE.md
-│   ├── USAGE.md
-│   ├── API.md
-│   ├── EXAMPLES.md
-│   └── ADR/
-│
-├── examples/
-│   ├── basic_html_extraction.py
-│   ├── javascript_heavy_site.py
-│   └── real_world_cases/
-│
-├── docker-compose.yml
-├── Dockerfile
-├── pyproject.toml
-└── package.json
-```
-
----
-
-## 🏁 Comenzando
-
-### Requisitos
-- Python 3.11+
-- Docker (opcional)
-
-### Instalación
 ```bash
-# Clonar el repositorio
-git clone https://github.com/robertesteban/DataExtractor.git
-cd DataExtractor
+# 1. Clonar el repositorio
+git clone https://github.com/robert-salinas/DataExtractor-.git
+cd DataExtractor-
 
-# Instalar dependencias
+# 2. Instalar dependencias
 pip install -e .
 ```
 
-### Uso vía CLI
-```bash
-python -m src.cli.cli extract "https://news.ycombinator.com" --type html
-```
+---
+
+## 📚 Documentación y Comunidad
+
+- 🏛️ [Arquitectura](docs/ARCHITECTURE.md)
+- 📝 [Decisiones de Diseño (ADRs)](docs/ADR/)
+- 🕹️ [Ejemplos de Uso](docs/EXAMPLES.md)
+- 🛠️ [Solución de Problemas](docs/TROUBLESHOOTING.md)
+- 🤝 [Guía de Contribución](CONTRIBUTING.md)
+- 📜 [Código de Conducta](CODE_OF_CONDUCT.md)
 
 ---
 
 ## 📄 Licencia
 Distribuido bajo la Licencia MIT. Ver `LICENSE` para más información.
+
+---
+
+Desarrollado con ❤️ por [Robert Salinas](https://github.com/robert-salinas)

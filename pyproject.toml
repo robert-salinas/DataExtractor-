@@ -3,8 +3,9 @@ name = "data-extractor"
 version = "0.1.0"
 description = "Herramienta flexible y potente para extraer datos de cualquier fuente web."
 authors = [
-    { name = "Robert Esteban" }
+    { name = "Robert Salinas" }
 ]
+license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
