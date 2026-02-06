@@ -1,21 +1,22 @@
 from typing import Dict, Type
-from src.scrapers.html_scraper import HTMLScraper
-from src.scrapers.api_scraper import APIScraper
-from src.scrapers.javascript_scraper import JSScraper
-from src.scrapers.pdf_scraper import PDFScraper
-from src.scrapers.database_scraper import DatabaseScraper
+from scrapers.html_scraper import HTMLScraper
+from scrapers.api_scraper import APIScraper
+from scrapers.javascript_scraper import JSScraper
+from scrapers.pdf_scraper import PDFScraper
+from scrapers.database_scraper import DatabaseScraper
+
 
 class ScraperFactory:
     """
     Factory pattern to manage different types of scrapers.
     """
-    
+
     _scrapers = {
         "html": HTMLScraper,
         "api": APIScraper,
         "spa": JSScraper,
         "pdf": PDFScraper,
-        "database": DatabaseScraper
+        "database": DatabaseScraper,
     }
 
     def get_scraper(self, scraper_type: str):

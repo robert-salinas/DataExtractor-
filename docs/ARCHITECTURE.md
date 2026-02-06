@@ -1,21 +1,33 @@
-# Arquitectura del Sistema 🏛️
+# DataExtractor Architecture
 
-## Descripción General
+DataExtractor (DX) is designed with modularity and scalability in mind. It follows several design patterns to ensure flexibility across different data sources.
 
-**DataExtractor (DX)** está diseñado bajo una arquitectura modular y orientada a servicios para permitir la máxima flexibilidad en la extracción de datos de diversas fuentes.
+## Core Components
 
-## Componentes Principales
+### 1. DataExtractor (Core)
+The main entry point (`src/core/extractor.py`) that coordinates extraction requests. It uses a `ScraperFactory` to delegate tasks.
 
-1.  **Core (Orquestación):** Maneja el flujo principal de datos y coordina los scrapers y extractores.
-2.  **Scrapers (Motores):** Implementaciones específicas para cada protocolo (HTTP, API, PDF, SQL).
-3.  **Extractors (Inteligencia):** Capa de análisis semántico para detección de campos y aprendizaje de patrones.
-4.  **API/CLI:** Interfaces de interacción para usuarios y sistemas externos.
+### 2. Scraper Factory
+Located in `src/scrapers/scraper_factory.py`, this component instantiates the appropriate scraper based on the source type (HTML, API, SPA, PDF, Database).
 
-## Decisiones de Diseño
+### 3. Base Scraper
+An abstract base class (`src/scrapers/base_scraper.py`) that defines the interface for all scrapers, ensuring consistency.
 
-- **Patrón Factory:** Utilizado en los scrapers para instanciar el motor adecuado dinámicamente.
-- **Asyncio:** Uso extensivo de procesamiento asíncrono para mejorar el rendimiento en extracciones masivas.
-- **Pydantic:** Validación estricta de esquemas de datos en la API.
+### 4. Specialized Scrapers
+- **HTML Scraper**: Uses BeautifulSoup and HTTPX for static content.
+- **API Scraper**: Handles JSON/REST responses.
+- **JS Scraper**: (SPA) Designed to use Playwright or Selenium for dynamic rendering.
+- **PDF Scraper**: Extracts text from PDF files.
+- **Database Scraper**: Executes SQL queries against various databases using SQLAlchemy.
 
----
-Desarrollado por Robert Salinas.
+## Data Flow
+1. User calls `DataExtractor.extract(source, type)`.
+2. `DataExtractor` asks `ScraperFactory` for the correct scraper.
+3. `ScraperFactory` returns a specialized scraper instance.
+4. `DataExtractor` calls `scraper.scrape(source)`.
+5. The scraper returns the processed data to the core, which returns it to the user.
+
+## Future Enhancements
+- **Intelligent Field Detection**: AI-powered identification of relevant data fields.
+- **Pattern Learning**: Automatic learning of extraction patterns for batch processing.
+- **Distributed Processing**: Integration with Celery and Redis for high-volume tasks.

@@ -1,4 +1,5 @@
-from src.scrapers.base_scraper import BaseScraper
+from scrapers.base_scraper import BaseScraper
+
 
 class JSScraper(BaseScraper):
     def scrape(self, source: str, **kwargs) -> str:

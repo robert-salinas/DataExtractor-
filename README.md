@@ -99,20 +99,24 @@ pip install -e .
 
 ---
 
-## 📚 Documentación y Comunidad
+## 📖 Documentación y Comunidad
+
+Para más detalles sobre cómo funciona DataExtractor, consulta los siguientes recursos:
 
 - 🏛️ [Arquitectura](docs/ARCHITECTURE.md)
 - 📝 [Decisiones de Diseño (ADRs)](docs/ADR/)
 - 🕹️ [Ejemplos de Uso](docs/EXAMPLES.md)
-- 🛠️ [Solución de Problemas](docs/TROUBLESHOOTING.md)
 - 🤝 [Guía de Contribución](CONTRIBUTING.md)
 - 📜 [Código de Conducta](CODE_OF_CONDUCT.md)
 
 ---
 
-## 📄 Licencia
-Distribuido bajo la Licencia MIT. Ver `LICENSE` para más información.
+## 👨‍💻 Autor
+
+Desarrollado con ❤️ por **[Robert Salinas](https://github.com/robert-salinas)**.
 
 ---
 
-Desarrollado con ❤️ por [Robert Salinas](https://github.com/robert-salinas)
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.

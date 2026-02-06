@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -17,22 +16,31 @@ parts/
 sdist/
 var/
 wheels/
-share/python-wheels/
-*.egg-info/
+pip-log.txt
+pip-delete-this-directory.txt
+status.dat
 .installed.cfg
 *.egg
-MANIFEST
-
-# Virtual Environments
+.pytest_cache/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
 .venv
-venv
+venv/
 ENV/
-env.bak
-venv.bak
 
 # Environment variables
 .env
-.env.local
+
+# Docker
+.dockerignore
+
+# Node.js (for the web frontend)
+node_modules/
+dist-web/
+*.log
 
 # IDEs
 .vscode/
@@ -43,13 +51,3 @@ venv.bak
 # OS
 .DS_Store
 Thumbs.db
-
-# Databases
-*.db
-*.sqlite
-*.sqlite3
-
-# Project specific
-data/
-outputs/
-logs/

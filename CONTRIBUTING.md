@@ -1,34 +1,34 @@
-# Guía de Contribución 🤝
+# Contributing to DataExtractor (DX)
 
-¡Gracias por tu interés en contribuir a **DataExtractor (DX)**! Estamos emocionados de recibir tus aportes.
+First off, thank you for considering contributing to DataExtractor! It's people like you that make DX such a great tool.
 
-## Cómo empezar
+## How Can I Contribute?
 
-1. Haz un Fork del repositorio.
-2. Crea una rama para tu feature o corrección (`git checkout -b feature/AmazingFeature`).
-3. Realiza tus cambios y asegúrate de que pasen los tests.
-4. Haz un Commit de tus cambios (`git commit -m 'Add some AmazingFeature'`).
-5. Haz Push a la rama (`git push origin feature/AmazingFeature`).
-6. Abre un Pull Request.
+### Reporting Bugs
+* Check the existing issues to see if the bug has already been reported.
+* If you can't find an open issue addressing the problem, open a new one.
+* Use a clear and descriptive title.
+* Describe the exact steps which reproduce the problem in as many details as possible.
 
-## Reporte de Bugs 🐛
+### Suggesting Enhancements
+* Check the existing issues to see if the enhancement has already been suggested.
+* Open a new issue with a clear title and description.
+* Explain why this enhancement would be useful to most DataExtractor users.
 
-Si encuentras un error, por favor abre un **Issue** describiendo:
-- El comportamiento esperado.
-- El comportamiento actual.
-- Pasos para reproducir el error.
-- Tu entorno (versión de Python, OS, etc.).
+### Pull Requests
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes.
+4. Ensure the tests pass.
+5. Submit a pull request.
 
-## Proponer Features 🧠
+## Code of Conduct
+This project and everyone participating in it is governed by the [DataExtractor Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
 
-¡Las nuevas ideas son bienvenidas! Abre un **Issue** con la etiqueta `enhancement` para discutir lo que tienes en mente.
+## Style Guide
+* We use `black` for code formatting.
+* We follow PEP 8 for Python code.
+* Use descriptive variable and function names.
 
-## Estilo de Código
-
-- Usamos **Black** para el formateo de código.
-- Asegúrate de incluir docstrings en las nuevas funciones y clases.
-- Mantén el rigor técnico pero con empatía en el código.
-
----
-
-Desarrollado con ❤️ por Robert Salinas.
+## Project Main Link
+[https://github.com/robert-salinas/DataExtractor-](https://github.com/robert-salinas/DataExtractor-)

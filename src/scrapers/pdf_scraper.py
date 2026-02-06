@@ -1,5 +1,6 @@
 from PyPDF2 import PdfReader
-from src.scrapers.base_scraper import BaseScraper
+from scrapers.base_scraper import BaseScraper
+
 
 class PDFScraper(BaseScraper):
     def scrape(self, source: str, **kwargs) -> str:
