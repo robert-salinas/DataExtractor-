@@ -1,5 +1,5 @@
 from typing import Any, Dict, Optional
-from scrapers.scraper_factory import ScraperFactory
+from src.scrapers.scraper_factory import ScraperFactory
 
 
 class DataExtractor:

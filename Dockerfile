@@ -7,4 +7,7 @@ RUN pip install .
 
 COPY . .
 
-CMD ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+ENV PYTHONPATH=/app
+ENV ALLOWED_ORIGINS=http://localhost:8001
+EXPOSE 8001
+CMD ["uvicorn", "src.backend.main:app", "--host", "0.0.0.0", "--port", "8001"]

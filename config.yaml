@@ -1,0 +1,25 @@
+scraping:
+  rate_limit: 2
+  max_retries: 3
+  timeout: 30
+  max_threads: 3
+  headless: false
+
+proxies:
+  archivo: "proxies.txt"
+  rotar: true
+
+osint:
+  breach_check: true
+  max_subdominios: 100
+  dns_tipos: ["A", "MX", "TXT", "NS", "SOA", "AAAA", "SPF", "DMARC"]
+
+sqli:
+  umbral_multiplicador: 2.5
+  baseline_requests: 3
+  probar_headers: true
+  probar_post: true
+
+export:
+  carpeta: "./resultados"
+  formato: "json"
